@@ -15,11 +15,11 @@ for line in fhand:
 
 # find the word with the largest count
 largest = None
-wd = None
+big_word = None
 
 for key,value in many.items():
     if largest is None or value > largest:
         largest = value
-        wd = key
+        big_word = key
 
-print(wd, largest)
+print(big_word, largest)
