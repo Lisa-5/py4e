@@ -8,8 +8,7 @@ for line in hand:
     targets = re.findall('[0-9]+', line)
     if len(targets) > 0:
         for i in targets:
-            i = int(i)
-            total.append(i)
+            total.append(int(i))
 
 print(sum(total))
 
