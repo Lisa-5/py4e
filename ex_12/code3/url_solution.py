@@ -16,9 +16,11 @@ count = int(input('Enter count: '))
 position = int(input('Enter position: '))
 counter = 0
 
-print('Retrieving:', url)
-
-while counter < count:
+while counter <= count:
+    print('Retrieving:', url)
+    if counter == count:
+         break
+    
     html = urllib.request.urlopen(url, context=ctx).read()
     soup = BeautifulSoup(html, 'html.parser') 
     tags = soup('a')
@@ -29,5 +31,4 @@ while counter < count:
         tags_list.append(tag)
 
     url = (tags_list[position - 1])
-    print('Retrieving:', url)
     counter += 1
