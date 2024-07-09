@@ -16,8 +16,9 @@ count = int(input('Enter count: '))
 position = int(input('Enter position: '))
 counter = 0
 
-def retrieve_tag():
-    global url
+print('Retrieving:', url)
+
+while counter < count:
     html = urllib.request.urlopen(url, context=ctx).read()
     soup = BeautifulSoup(html, 'html.parser') 
     tags = soup('a')
@@ -26,12 +27,7 @@ def retrieve_tag():
     for tag in tags:
         tag = tag.get('href', None)
         tags_list.append(tag)
-        
+
     url = (tags_list[position - 1])
-    
-while counter <= count:
     print('Retrieving:', url)
-    retrieve_tag()
     counter += 1
-
-
